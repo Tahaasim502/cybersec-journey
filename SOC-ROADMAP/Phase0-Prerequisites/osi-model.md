@@ -60,7 +60,6 @@
 						1. Client->server: synchronization 
 						2. sever->client: SYN-ACK
 						3. Client->server: ACK
-    
 			2. UDP(User datagram protocol):
 					1. Not connection oriented
 					2. Faster 
