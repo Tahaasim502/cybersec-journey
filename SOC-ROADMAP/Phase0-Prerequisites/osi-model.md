@@ -51,22 +51,23 @@
 			2. That's why you tube or Spotify can work without mixing the data as it uses different port numbers. 
 	4. Protocols:
 			1. TCP(Transmission Control Protocol):
-				1. Connection oriented: Connection needs to be established before hand for communication to take place.
-				2. Guaranteed reliability makes sure all the packets have arrived and send confirmation
-				3. Speed its slower as it needs to check each and every packet
-				4. Makes sure the packet arrive in the same order as it was sent
-				5. Web, email, file transfer 
-				6. Three way handshake:
-					1. Client->server: synchronization 
-					2. sever->client: SYN-ACK
-					3. Client->server: ACK
+					1. Connection oriented: Connection needs to be established before hand for communication to take place.
+					2. Guaranteed reliability makes sure all the packets have arrived and send confirmation
+					3. Speed its slower as it needs to check each and every packet
+					4. Makes sure the packet arrive in the same order as it was sent
+					5. Web, email, file transfer 
+					6. Three way handshake:
+						1. Client->server: synchronization 
+						2. sever->client: SYN-ACK
+						3. Client->server: ACK
+    
 			2. UDP(User datagram protocol):
-				1. Not connection oriented
-				2. Faster 
-				3. No guarantee
-				4. No order is needed
-				5. Video streaming, gaming, DNS
-	5. Ports:
+					1. Not connection oriented
+					2. Faster 
+					3. No guarantee
+					4. No order is needed
+					5. Video streaming, gaming, DNS
+	6. Ports:
 		1. Ports - Protocol
 		2. 21 - FTP
 		3. 22 - SSH
