@@ -1,95 +1,185 @@
-# OSI
-- Open source intercommunication
-- A guideline that describes how the data is moved through the network
-- Allows communication between deferent devices using protocols.
+# OSI Model — Networking Fundamentals
 
+> **OSI** — Open Systems Interconnection  
+> A guideline that describes how data is moved through a network.  
+> Allows communication between different devices using protocols.
 
-# Layers
-1. Physical 
-	1. It uses signals for communication 
-	2. Cables, connectors and fiber optic cables are used for communication between devices, it uses a physical medium for physical connection.
-	3. 3 Main wires
-		1. Copper cable(Electric signals)
-		2. Fiber optic cable(Light pulses)
-		3. Wireless(WIFI- Bluetooth)
-2. Data link
-	1. The foundation layer that tells us how data is transferred between devices on the same network using MAC(Media Access Control) address.
-	2. MAC is a six byte address that is engraved on every NIC(Network interface card).
-	3. It is represented in 2 HEXADECIMAL digits representing one byte, and it is separated using a colon.
-	4. It calls data "Frames"
-	5. It uses an ARP table(Address resolution protocol) using for mapping IP address to its MAC address.
-	6. Eg:
-		1. Destination:`Tenda (15:85:10:15:55:20)`
-		2. `Tenda` = the manufacturer (Tenda — a router brand)
-		3.  This is your **router's MAC address**
-		4. **Source:** `FNLINK (24:45:P8:15:16:85)`
-		5.  `FNLINK` = the manufacturer of your network card
-		6. This is **your device's MAC address**
-		7. You are the source sending the traffic
-		8. Remaining bits are the data that is being sent   
-3. Network 
-	1. Allows communication between different devices on different networks
-	2. Breaks down the frames into smaller packets
-	3. Uses routing table where all the IP address are stored, and to let them know which is the next IP they need to go to.
-	4. Two IPS:
-		1. IPV4(32 bit address): 192.128.10.5
-		2. IPV6(128 bit address): F654::48S4:985d:484s:484s:po4s
-	5. Eg:
-		1. PC->ROUTER->Another ROUTER->DESTINATION PC
-4. Transport 
-	1. It makes sure the data that is taken from the source is delivered to correct destination.
-	2. Provides end to end communication.
-	3. It does 4 main things 
-		1. Segmentation:
-			1. Breaking down of large data into segments so it can easily travel across the network, and get reassembled using indexing as each segment is indexed.
-		2. Flow Control:
-			1. It controls how much data can be sent from the source at once, and how much data the receiver can get at once. Makes sure everything is balanced in the network system.
-		3. Error control:
-			1. Making sure the packets have been delivered successfully to its correct destination. If any packets are damaged or missing it resends them.
-		4. Multiplexing:
-			1. Multiple applications can send and received data at the same time using different port numbers. 
-			2. That's why you tube or Spotify can work without mixing the data as it uses different port numbers. 
-	4. Protocols:
-			1. TCP(Transmission Control Protocol):
-					1. Connection oriented: Connection needs to be established before hand for communication to take place.
-					2. Guaranteed reliability makes sure all the packets have arrived and send confirmation
-					3. Speed its slower as it needs to check each and every packet
-					4. Makes sure the packet arrive in the same order as it was sent
-					5. Web, email, file transfer 
-					6. Three way handshake:
-						1. Client->server: synchronization 
-						2. sever->client: SYN-ACK
-						3. Client->server: ACK
-			2. UDP(User datagram protocol):
-					1. Not connection oriented
-					2. Faster 
-					3. No guarantee
-					4. No order is needed
-					5. Video streaming, gaming, DNS
-	6. Ports:
-		1. Ports - Protocol
-		2. 21 - FTP
-		3. 22 - SSH
-		4. 23 - TELNET
-		5. 25 - SMTP
-		6. 53 - DNS
-		7. 80 - HTTP
-		8. 443 - HTTPS
-		9. 3389 - RDP
-5. Session 
-	1. Opening, managing, and closing a session between devices
-	2. Session Establishment: Connection needs to be established before any data is transferred.
-	3. Session Management: Keeps the session alive during data transfer. Adds **checkpoints** incase the data transfer fails midway it restores from where it failed.
-		1. Eg: when WhatsApp gets disconnected it reconnects using the checkpoints 
-	4. Session Termination: Closing the session once its completed
-6. Presentation 
-	1. A way to make sure that the data is translated for both the sender and receiver to make communication between them and easier to understand.
-	2. Translation: Converting data from one format to another so both can understand each other
-	3. Compression: Making sure the data is compressed so that it can speed up the process.
-	4. Encapsulation decapsulation: Making sure the data is encrypted while it is being sent and decrypted to its original form once the data has been received. 
-	5. Eg
-		1. Video formats: MP4
-		2. image: PNG,JPEG,GIF
-7. Application layer
-	1. Providing network service application to the users.
-	2. It uses protocols so that it can communicate over the network.
+---
+
+## The 7 Layers
+
+### Layer 1 — Physical
+- Uses signals for communication
+- Uses a physical medium for connection between devices
+- **3 main transmission types:**
+  - Copper cable → Electric signals
+  - Fiber optic cable → Light pulses
+  - Wireless → WiFi, Bluetooth
+
+---
+
+### Layer 2 — Data Link
+- Handles data transfer between devices on the **same network**
+- Uses **MAC (Media Access Control)** addresses to identify devices
+- MAC is a 6-byte address engraved on every NIC (Network Interface Card)
+- Represented as 2 hexadecimal digits per byte, separated by colons
+- Data units at this layer are called **Frames**
+- Uses **ARP (Address Resolution Protocol)** to map IP addresses to MAC addresses
+
+**Example from Wireshark:**
+```
+Destination: TendaTechnol_bd:08:40 (58:d9:d5:bd:08:40) → Router's MAC
+Source:      FNLINKTECHNO_d2:54:50 (80:9d:65:d2:54:50) → My device's MAC
+```
+- `TendaTechnol` = Tenda router (manufacturer identified from MAC)
+- `FNLINKTECHNO` = My network card manufacturer
+- Remaining bytes = the actual data being transmitted
+
+---
+
+### Layer 3 — Network
+- Allows communication between devices on **different networks**
+- Breaks frames down into smaller **packets**
+- Uses a **routing table** to determine the next hop for each packet
+
+**Two IP versions:**
+| Version | Bits | Example |
+|---------|------|---------|
+| IPv4 | 32-bit | `192.168.10.5` |
+| IPv6 | 128-bit | `F654::48A4:985d:484a:484b:C04s` |
+
+**Routing example:**
+```
+PC → Router → Another Router → Destination PC
+```
+
+---
+
+### Layer 4 — Transport
+- Ensures data from the source is delivered to the correct destination
+- Provides **end-to-end communication**
+
+**4 main functions:**
+
+| Function | Description |
+|----------|-------------|
+| **Segmentation** | Breaks large data into segments, each indexed for reassembly |
+| **Flow Control** | Balances how much data is sent/received at once |
+| **Error Control** | Confirms all packets arrived — resends missing or damaged ones |
+| **Multiplexing** | Multiple apps communicate simultaneously using different port numbers |
+
+**TCP vs UDP:**
+
+| | TCP | UDP |
+|-|-----|-----|
+| Connection | Connection-oriented | Connectionless |
+| Reliability | Guaranteed | No guarantee |
+| Speed | Slower | Faster |
+| Order | Maintained | Not maintained |
+| Use cases | Web, email, file transfer | Streaming, gaming, DNS |
+
+**TCP Three-Way Handshake:**
+```
+Client → Server : SYN
+Server → Client : SYN-ACK
+Client → Server : ACK
+✓ Connection established
+```
+
+**Common Ports:**
+
+| Port | Protocol |
+|------|----------|
+| 21 | FTP |
+| 22 | SSH |
+| 23 | Telnet |
+| 25 | SMTP |
+| 53 | DNS |
+| 80 | HTTP |
+| 443 | HTTPS |
+| 3389 | RDP |
+
+---
+
+### Layer 5 — Session
+- Responsible for **opening, managing, and closing sessions** between devices
+
+| Function | Description |
+|----------|-------------|
+| **Session Establishment** | Connection set up before any data transfer |
+| **Session Management** | Keeps session alive, adds checkpoints for recovery |
+| **Session Termination** | Cleanly closes session when communication ends |
+
+**Example:** When WhatsApp disconnects mid-call, it reconnects from the last checkpoint rather than restarting the session entirely.
+
+---
+
+### Layer 6 — Presentation
+- Acts as a **translator** — ensures data is in a format both sender and receiver understand
+
+| Function | Description |
+|----------|-------------|
+| **Translation** | Converts data between different formats |
+| **Compression** | Reduces data size to speed up transmission |
+| **Encryption/Decryption** | Encrypts data before sending, decrypts on arrival |
+
+**Examples:**
+- Video: MP4, AVI
+- Images: PNG, JPEG, GIF
+- Encryption: SSL/TLS (HTTPS)
+
+---
+
+### Layer 7 — Application
+- Provides **network services directly to the user's applications**
+- Not the app itself (e.g. Chrome) but the protocols that allow it to communicate
+
+**Common protocols:**
+
+| Protocol | Purpose |
+|----------|---------|
+| HTTP/HTTPS | Web browsing |
+| FTP | File transfer |
+| SMTP | Sending email |
+| POP3/IMAP | Receiving email |
+| DNS | Domain name to IP resolution |
+| DHCP | Automatic IP assignment |
+| SSH | Secure remote access |
+| Telnet | Remote access (unencrypted) |
+
+---
+
+## OSI vs TCP/IP
+
+```
+OSI Model          TCP/IP Model
+─────────────────────────────────
+Layer 7 Application  ↘
+Layer 6 Presentation → Application Layer
+Layer 5 Session      ↗
+Layer 4 Transport  →   Transport Layer
+Layer 3 Network    →   Internet Layer
+Layer 2 Data Link  ↘
+Layer 1 Physical   ↗   Network Access Layer
+```
+
+> OSI = theoretical model used for learning and troubleshooting  
+> TCP/IP = practical model that actually runs the internet
+
+---
+
+## Quick Reference — All 7 Layers
+
+| Layer | Name | Data Unit | Key Protocol/Concept |
+|-------|------|-----------|---------------------|
+| 7 | Application | Data | HTTP, DNS, FTP, SSH |
+| 6 | Presentation | Data | SSL/TLS, JPEG, MP4 |
+| 5 | Session | Data | NetBIOS, RPC |
+| 4 | Transport | Segment | TCP, UDP, Ports |
+| 3 | Network | Packet | IP, ICMP, Routing |
+| 2 | Data Link | Frame | MAC, ARP, Switches |
+| 1 | Physical | Bits | Cables, Signals, WiFi |
+
+---
+
+*Notes by Taha Asim | SOC Analyst Roadmap — Phase 0*
