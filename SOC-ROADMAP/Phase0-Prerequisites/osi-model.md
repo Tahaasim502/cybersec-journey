@@ -28,11 +28,11 @@
 
 **Example from Wireshark:**
 ```
-Destination: TendaTechnol_bd:08:40 (58:d9:d5:bd:08:40) → Router's MAC
-Source:      FNLINKTECHNO_d2:54:50 (80:9d:65:d2:54:50) → My device's MAC
+Destination: Tenda(45:45:45:45:45:45) → Router's MAC
+Source:      FNLINKT80:80:80:80:80:80) → My device's MAC
 ```
-- `TendaTechnol` = Tenda router (manufacturer identified from MAC)
-- `FNLINKTECHNO` = My network card manufacturer
+- `Tendal` = Tenda router (manufacturer identified from MAC)
+- `FNLINK` = My network card manufacturer
 - Remaining bytes = the actual data being transmitted
 
 ---
