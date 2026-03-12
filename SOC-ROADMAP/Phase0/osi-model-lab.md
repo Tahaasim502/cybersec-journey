@@ -10,11 +10,13 @@
 	* Over here we can see two things:
 		* Source MAC address
 		* Destination MAC address
-		* ![[Pasted image 20260312135740.png]]
+		*<img width="1448" height="137" alt="image" src="https://github.com/user-attachments/assets/43179138-7580-4742-8133-d61b09bd87a5" />
+ 
+
 ---
 
 # Layer 3(Internet Protocol Layer)
-*![[Pasted Image 20260312124716_955.png]]
+*<img width="1139" height="464" alt="image" src="https://github.com/user-attachments/assets/22591e41-f0b8-41c0-948b-8154b14513c4" />
 1. Version: This tells us the IP version either 4 or 6
 2. Header Length: This is the total size of the IP Header 
 3. DSCP/ECN: The quality of service
