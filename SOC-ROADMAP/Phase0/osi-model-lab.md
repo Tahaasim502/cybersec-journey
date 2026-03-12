@@ -46,8 +46,9 @@
 7. Source add & Dest add
 
 ---
+# Layer 4(Transport Layer)
 
-Layer 4(Transport Layer)
+
 <img width="1857" height="142" alt="image" src="https://github.com/user-attachments/assets/d5bea0d7-af73-4c3e-b1a0-52ad38b7f4bb" />
 
 * 1799: PC->Server[SYN]
@@ -67,5 +68,3 @@ Layer 4(Transport Layer)
 		* User-Agent: identifies the OS and the web browser that is being used
 		* Accept: This contains all the stuff user needs for eg language, size etc
 		* Connection: Making sure the connection is alive of the web page
----
-# Layer 4(Transport Layer)
